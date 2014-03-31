@@ -9,7 +9,27 @@
  * only public api is:
  *
  * * `id` – `{string}` – locale id formatted as `languageId-countryId` (e.g. `en-us`)
+ * * `NUMBER_FORMATS` – `{object}` :
+ *   * `DECIMAL_SEP` - `{string}` - decimal separator (e.g. `.`)
+ *   * `GROUP_SEP` - `{string}` - group separator (e.g. `,`)
+ *   * `PATTERNS` - `{object}` - Object containing decimal and currency patterns
+ *   * `CURRENCY_SYM` - `{string}` - currency symbol (e.g. `$`)
+ * * `DATETIME_FORMATS` – `{object}`:
+ *   * `MONTH` - `{array[string]}` - Array of full names of the months (e.g. `January`, `March`)
+ *   * `SHORTMONTH` - `{array[string]}` - Array of short names of the months (e.g. `Jan`, `March`)
+ *   * `DAY` - `{array[string]}` - Array of full days of the week (e.g. `Monday`, `Friday`)
+ *   * `SHORTDAY` - `{array[string]}` - Array of short days of the week (e.g. `Mon`, `Fri`)
+ *   * `AMPMS` - `{string}` - Ante-meridiem and post-meridiem acronyms
+ *   * `medium` - `{string}` - Date and time in medium format (e.g. `MMM d, y h:mm:ss a`)
+ *   * `short` - `{string}` - Date and time in short format (e.g. `M/d/yy h:mm a`)
+ *   * `fullDate` - `{string}` - Full format for date (e.g. `EEEE, MMMM d, y`)
+ *   * `longDate` - `{string}` - Long format for date (e.g. `MMMM d, y`)
+ *   * `mediumDate` - `{string}` - Medium format for date (e.g. `MMM d, y`)
+ *   * `shortDate` - `{string}` - Short format for date (e.g. `M/d/yy`)
+ *   * `mediumTime` - `{string}` - Medium format for time (e.g. `h:mm:ss a`)
+ *   * `shortTime` - `{string}` - Short format for time (e.g. `h:mm a`)
  */
+
 function $LocaleProvider(){
   this.$get = function() {
     return {

@@ -30,8 +30,30 @@ function $TimeoutProvider() {
       *   will invoke `fn` within the {@link ng.$rootScope.Scope#$apply $apply} block.
       * @returns {Promise} Promise that will be resolved when the timeout is reached. The value this
       *   promise will be resolved with is the return value of the `fn` function.
-      *
-      */
+      * @example
+        <example module="ngTimeoutExample">
+          <file name="script.js">
+            angular.module('ngTimeoutExample', []);
+            angular.module('ngTimeoutExample')
+              .controller('timeoutCtrl', function($scope, $timeout){
+                $scope.timeInMs = 0;
+                var countFn = function(){
+                  $scope.timeInMs+=500;
+                  $timeout(countFn, 500);
+                };
+                $timeout(countFn, 500);
+              }
+            );
+          </file>
+
+          <file name="index.html">
+            <div ng-controller="timeoutCtrl">
+              <span>Time (in ms): {{timeInMs}}</span>
+            </div>
+          </file>
+
+        </example>
+     */
     function timeout(fn, delay, invokeApply) {
       var deferred = $q.defer(),
           promise = deferred.promise,
